@@ -148,7 +148,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#set-up-using-anaconda-navigator"><i class="fa fa-check"></i><b>2.2</b> Set Up Using Anaconda Navigator</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html"><i class="fa fa-check"></i><b>3</b> Connecting R to Earth Engine</a></li>
+<li class="chapter" data-level="3" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html"><i class="fa fa-check"></i><b>3</b> Connecting R to Earth Engine</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html#connecting-r-to-python"><i class="fa fa-check"></i><b>3.1</b> Connecting R to Python</a></li>
+<li class="chapter" data-level="3.2" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html#connecting-rgee-to-the-python-environment"><i class="fa fa-check"></i><b>3.2</b> Connecting <code>rgee</code> to the Python Environment</a></li>
+<li class="chapter" data-level="3.3" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html#initializing-gee"><i class="fa fa-check"></i><b>3.3</b> Initializing GEE</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -173,7 +178,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="connecting-r-to-earth-engine" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number"> 3</span> Connecting R to Earth Engine<a href="connecting-r-to-earth-engine.html#connecting-r-to-earth-engine" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Now that we have Python and the Earth Engine API installed and connected to our Google credentials, we now have to connect R to Python and the API</p>
+<p>Open up Rstudio. If you haven’t already, install <code>rgee</code></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="connecting-r-to-earth-engine.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rgee&quot;</span>)</span></code></pre></div>
+<div id="connecting-r-to-python" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Connecting R to Python<a href="connecting-r-to-earth-engine.html#connecting-r-to-python" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><code>rgee</code> is dependent on a package called <code>reticulate</code> (which is automatically installed when you install <code>rgee</code>). <code>reticulate</code> is what lets R talk to Python, thus letting R talk to Google Earth Engine.</p>
+<p>First, we have to set up a path to where R can find a python.exe file. We <em>could</em> use <code>Sys.which</code> to find where python.exe is located…</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="connecting-r-to-earth-engine.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.which</span>(<span class="st">&quot;python&quot;</span>)</span></code></pre></div>
+<pre><code>##                                   python 
+## &quot;C:\\Users\\Ronan\\ANACON~1\\python.exe&quot;</code></pre>
+<p><strong>HOWEVER!</strong> We need to be sure that this python executable file has the Earth Engine API connected to it. Remember all that work we did in the previous chapter? We created a conda environment specifically for <code>rgee</code> and installed the API in it. There is also a python.exe file within this environment, so we want R to work with this file.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="connecting-r-to-earth-engine.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note that you will need to change the user name for your case</span></span>
+<span id="cb18-2"><a href="connecting-r-to-earth-engine.html#cb18-2" aria-hidden="true" tabindex="-1"></a>python_dir <span class="ot">&lt;-</span> <span class="st">&quot;C:</span><span class="sc">\\</span><span class="st">Users</span><span class="sc">\\</span><span class="st">Ronan</span><span class="sc">\\</span><span class="st">anaconda3</span><span class="sc">\\</span><span class="st">envs</span><span class="sc">\\</span><span class="st">&quot;</span></span>
+<span id="cb18-3"><a href="connecting-r-to-earth-engine.html#cb18-3" aria-hidden="true" tabindex="-1"></a>rgee_env <span class="ot">&lt;-</span> <span class="fu">paste0</span>(python_dir, <span class="st">&quot;rgee</span><span class="sc">\\</span><span class="st">&quot;</span>)</span>
+<span id="cb18-4"><a href="connecting-r-to-earth-engine.html#cb18-4" aria-hidden="true" tabindex="-1"></a>python_exe <span class="ot">&lt;-</span> <span class="fu">paste0</span>(rgee_env, <span class="st">&quot;python.exe&quot;</span>)</span>
+<span id="cb18-5"><a href="connecting-r-to-earth-engine.html#cb18-5" aria-hidden="true" tabindex="-1"></a>python_exe</span></code></pre></div>
+<pre><code>## [1] &quot;C:\\Users\\Ronan\\anaconda3\\envs\\rgee\\python.exe&quot;</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="connecting-r-to-earth-engine.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.exists</span>(python_exe)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p><em>(Note: this would also work with</em> <code>/</code> <em>instead of</em> <code>\\</code><em>)</em></p>
+<p>If, for whatever reason, the <code>rgee</code> environment we created in the last chapter is in a different location than mine (other than the user name) and you aren’t sure where it would be located, you can search for it within your file explorer</p>
+<p><img src="images/rgee_env.png" id="id" class="class" style="width:85.0%;height:85.0%" />
+Let’s tell R to use this Python file</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="connecting-r-to-earth-engine.html#cb22-1" aria-hidden="true" tabindex="-1"></a>reticulate<span class="sc">::</span><span class="fu">use_python</span>(python_exe)</span></code></pre></div>
+<pre><code>## Warning: The request to
+## `use_python(&quot;C:\Users\Ronan\anaconda3\envs\rgee\python.exe&quot;)` will be ignored
+## because the environment variable RETICULATE_PYTHON is set to
+## &quot;C:\Users\Ronan\anaconda3\envs\rgee&quot;&quot;</code></pre>
+</div>
+<div id="connecting-rgee-to-the-python-environment" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Connecting <code>rgee</code> to the Python Environment<a href="connecting-r-to-earth-engine.html#connecting-rgee-to-the-python-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we need to connect <code>rgee</code> with the Python environment we created in the previous chapter. We could use the default <code>rgee::ee_install</code>, however, this creates a <em>new</em> environment. If we did this, this new environment would not have the Earth Engine API connected to it. Instead, we will use <code>rgee::ee_ee_install_set_pyenv</code> to specify an existing Python environment</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="connecting-r-to-earth-engine.html#cb24-1" aria-hidden="true" tabindex="-1"></a>rgee<span class="sc">::</span><span class="fu">ee_install_set_pyenv</span>(<span class="at">py_path =</span> rgee_env, <span class="at">py_env =</span> <span class="st">&quot;rgee&quot;</span>)</span></code></pre></div>
+<pre><code>## EARTHENGINE_PYTHON=&#39;C:\Users\Ronan\anaconda3\envs\rgee\&#39;
+## EARTHENGINE_ENV=&#39;rgee&#39;
+## saved in: C:/Users/Ronan/Documents/.Renviron</code></pre>
+<pre><code>## rgee needs to restart the R session to see changes.</code></pre>
+<p>You will be asked to restart your R session. Enter <code>1</code> for yes.</p>
+</div>
+<div id="initializing-gee" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Initializing GEE<a href="connecting-r-to-earth-engine.html#initializing-gee" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we have to authenticate and connect <code>rgee</code> with the Google account you use for Google Earth Engine.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="connecting-r-to-earth-engine.html#cb27-1" aria-hidden="true" tabindex="-1"></a>rgee<span class="sc">::</span><span class="fu">ee_check</span>()</span></code></pre></div>
 
+</div>
 </div>
             </section>
 
