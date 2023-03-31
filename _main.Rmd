@@ -15,7 +15,7 @@ github-repo: rstudio/bookdown-demo
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-# Set Up Pyton and Earth Engine API
+# Installing Python and Anaconda
 
 Before being able to use `rgee`, you need to ensure:
 
@@ -32,18 +32,20 @@ Go to <https://www.anaconda.com/> and select "Download"
 
 <!--chapter:end:index.Rmd-->
 
-# Set up on the Command Prompt (shell/terminal)
+# Installing the Earth Engine API
+
+## Set Up Using the Command Prompt (shell/terminal)
 
 *(Note: these instructions are for Windows)*
 
-## Activate the conda virtual environment
+### Activate the conda virtual environment
 
-After Anacoda is successfully downloaded, open the Command Prompt shell by:
+After Anaconda is successfully downloaded, open the Command Prompt shell by:
     
 - opening the start menu and search for 'Command Prompt'
 - pressing the Windows key + R and search 'cmd'
 - clicking the terminal tab in Rstudio
-- launcing "CMD.exe Prompt" within Anaconda Navigator
+- launching "CMD.exe Prompt" within Anaconda Navigator
 
 You should be in your root or home directory and see something like `C:\Users\[username]>` and your cursor
 
@@ -67,15 +69,9 @@ conda --help
 
 If the result is something like `'conda' not found` or `'conda' not recognized as a command`, then conda did not install correctly. 
 
-## Create a conda envrionment for Earth Engine API 
+### Create a conda envrionment for Earth Engine API 
 
-If you don't see `(base)` in front of your user name, activate your base conda environment by entering 
-
-```{r}
-anaconda3\condabin\activate
-```
-
-Create a conda virtual environment for the Earth Engine API. It is always recommended to work in different environments and not your base environment. This is so you can work with different packages and dependences depending on your project. We want to name this environment `rgee` since we will use this environment to work with the `rgee` package. This environment can be named anything you want, as long as you know what environment the Earth Engine API is installed in, so it makes the most sense (and is standard) to name the environment after the main package you are working with.
+It is always recommended to work in different environments and not your base environment. This is so you can work with different packages and dependences depending on your project. We want to name this environment `rgee` since we will use this environment to work with the `rgee` package. This environment can be named anything you want, as long as you know what environment the Earth Engine API is installed in, so it makes the most sense (and is standard) to name the environment after the main package you are working with.
 
 In the command prompt, enter 
 
@@ -102,7 +98,7 @@ conda deactivate
 *and you should see `(base)` in front of your user name again.*
 
 
-## Install the Earth Engine API
+### Install the Earth Engine API
 
 Install the Earth Engine API into this conda `rgee` environment by entering 
 
@@ -124,7 +120,7 @@ and type `y` when prompted.
     
 This will automatically install all of `pandas` dependencies, like `numpy` (a package that handles scientific computation)
 
-### Install `gcloud`
+#### Install `gcloud`
 
 We need to ensure that `gcloud` is installed to connect our Google credentials to Earth Engine API
 
@@ -160,7 +156,7 @@ Close and re-open the Command Prompt shell, re-activate conda and the conda `rge
 
 (you should see `(rgee)` in front of your user name)
 
-## Connect your Earth Engine credentials to the API
+### Connect your Earth Engine credentials to the API
 
 5. In the command shell, type
 
@@ -201,10 +197,13 @@ then you have successfully connected the API to your Earth Engine account
 To exit the python interpreter, enter Ctr + Z (It will look like `^Z`)
 
 
-<!--chapter:end:01-setup_shell.Rmd-->
+
+## Set Up Using Anaconda Navigator
+
+<!--chapter:end:01-earthengine_api.Rmd-->
 
 
-<!--chapter:end:02-setup_anaconda_nav.Rmd-->
+<!--chapter:end:02-rgee.Rmd-->
 
 `r if (knitr::is_html_output()) '
 # References {-}

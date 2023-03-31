@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title> 2 Install the Earth Engine API | Tutorials</title>
+  <meta name="description" content=" 2 Install the Earth Engine API | Tutorials" />
+  <meta name="generator" content="bookdown 0.33.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content=" 2 Install the Earth Engine API | Tutorials" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content=" 2 Install the Earth Engine API | Tutorials" />
+  
+  
+  
+
+<meta name="author" content="Ronan Hart" />
+
+
+<meta name="date" content="2023-03-31" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Installing Python and Anaconda</a></li>
+<li class="chapter" data-level="2" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html"><i class="fa fa-check"></i><b>2</b> Install the Earth Engine API</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#set-up-using-the-command-prompt-shellterminal"><i class="fa fa-check"></i><b>2.1</b> Set Up Using the Command Prompt (shell/terminal)</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#activate-the-conda-virtual-environment"><i class="fa fa-check"></i><b>2.1.1</b> Activate the conda virtual environment</a></li>
+<li class="chapter" data-level="2.1.2" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#create-a-conda-envrionment-for-earth-engine-api"><i class="fa fa-check"></i><b>2.1.2</b> Create a conda envrionment for Earth Engine API</a></li>
+<li class="chapter" data-level="2.1.3" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#install-the-earth-engine-api-1"><i class="fa fa-check"></i><b>2.1.3</b> Install the Earth Engine API</a></li>
+<li class="chapter" data-level="2.1.4" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#connect-your-earth-engine-credentials-to-the-api"><i class="fa fa-check"></i><b>2.1.4</b> Connect your Earth Engine credentials to the API</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="install-the-earth-engine-api.html"><a href="install-the-earth-engine-api.html#set-up-using-anaconda-navigator"><i class="fa fa-check"></i><b>2.2</b> Set Up Using Anaconda Navigator</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tutorials</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="install-the-earth-engine-api" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number"> 2</span> Install the Earth Engine API<a href="install-the-earth-engine-api.html#install-the-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="set-up-using-the-command-prompt-shellterminal" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Set Up Using the Command Prompt (shell/terminal)<a href="install-the-earth-engine-api.html#set-up-using-the-command-prompt-shellterminal" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><em>(Note: these instructions are for Windows)</em></p>
+<div id="activate-the-conda-virtual-environment" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Activate the conda virtual environment<a href="install-the-earth-engine-api.html#activate-the-conda-virtual-environment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>After Anaconda is successfully downloaded, open the Command Prompt shell by:</p>
+<ul>
+<li>opening the start menu and search for ‘Command Prompt’</li>
+<li>pressing the Windows key + R and search ‘cmd’</li>
+<li>clicking the terminal tab in Rstudio</li>
+<li>launching “CMD.exe Prompt” within Anaconda Navigator</li>
+</ul>
+<p>You should be in your root or home directory and see something like <code>C:\Users\[username]&gt;</code> and your cursor</p>
+<p>If you are in a different directory, enter <code>cd</code> and your root directory (<code>cd</code> means “change directory”)</p>
+<p>In the command prompt, enter</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="install-the-earth-engine-api.html#cb1-1" aria-hidden="true" tabindex="-1"></a>anaconda3\condabin\activate</span></code></pre></div>
+<p>You should now see <code>(base)</code> in front of your user name.</p>
+<p><strong>Whenever you need to be in a conda environment (such as for the rest of this tutorial), be sure to check if you have</strong> <code>(base)</code> <strong>in front of your user name. If you don’t, always enter the above command to enter the conda environment</strong></p>
+<p>Test that conda is installed correctly by entering</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install-the-earth-engine-api.html#cb2-1" aria-hidden="true" tabindex="-1"></a>conda <span class="sc">--</span>help</span></code></pre></div>
+<p>If the result is something like <code>'conda' not found</code> or <code>'conda' not recognized as a command</code>, then conda did not install correctly.</p>
+</div>
+<div id="create-a-conda-envrionment-for-earth-engine-api" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Create a conda envrionment for Earth Engine API<a href="install-the-earth-engine-api.html#create-a-conda-envrionment-for-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>It is always recommended to work in different environments and not your base environment. This is so you can work with different packages and dependences depending on your project. We want to name this environment <code>rgee</code> since we will use this environment to work with the <code>rgee</code> package. This environment can be named anything you want, as long as you know what environment the Earth Engine API is installed in, so it makes the most sense (and is standard) to name the environment after the main package you are working with.</p>
+<p>In the command prompt, enter</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install-the-earth-engine-api.html#cb3-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">--</span>name rgee</span></code></pre></div>
+<p>and enter <code>y</code> when prompted.</p>
+<p>Activate your conda <code>rgee</code> environment by entering</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="install-the-earth-engine-api.html#cb4-1" aria-hidden="true" tabindex="-1"></a>conda activate rgee</span></code></pre></div>
+<p>You should now see <code>(rgee)</code> in front of your user name</p>
+<p><em>Note: to exit the <code>rgee</code> environment, enter</em></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="install-the-earth-engine-api.html#cb5-1" aria-hidden="true" tabindex="-1"></a>conda deactivate</span></code></pre></div>
+<p><em>and you should see <code>(base)</code> in front of your user name again.</em></p>
+</div>
+<div id="install-the-earth-engine-api-1" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Install the Earth Engine API<a href="install-the-earth-engine-api.html#install-the-earth-engine-api-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Install the Earth Engine API into this conda <code>rgee</code> environment by entering</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="install-the-earth-engine-api.html#cb6-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c conda<span class="sc">-</span>forge earthengine<span class="sc">-</span>api<span class="sc">==</span><span class="dv">0</span>.<span class="fl">1.323</span></span></code></pre></div>
+<p>and type <code>y</code> when prompted.</p>
+<p><code>conda install</code> is the method of installing any packages into the conda environment. <code>-c conda-forge</code> is needed because <code>earthengine-api</code> is not a built-in package in python (kind of like how you might install a github package using <code>devtools::</code>). Note that we are installing version 0.1.323 of <code>earthengine-api</code>. This is not the most recent version of <code>earthengine-api</code>, but <code>rgee</code> was developped and will work best with this version.</p>
+<p>Go ahead and also install the package <code>pandas</code> (a python package that handles data management, similar to <code>dplyr</code> in R). Enter</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="install-the-earth-engine-api.html#cb7-1" aria-hidden="true" tabindex="-1"></a>conda install pandas</span></code></pre></div>
+<p>and type <code>y</code> when prompted.</p>
+<p>This will automatically install all of <code>pandas</code> dependencies, like <code>numpy</code> (a package that handles scientific computation)</p>
+<div id="install-gcloud" class="section level4 hasAnchor" number="2.1.3.1">
+<h4><span class="header-section-number">2.1.3.1</span> Install <code>gcloud</code><a href="install-the-earth-engine-api.html#install-gcloud" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We need to ensure that <code>gcloud</code> is installed to connect our Google credentials to Earth Engine API</p>
+<p>Check that <code>gcloud</code> is installed or not by typing in the command shell</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="install-the-earth-engine-api.html#cb8-1" aria-hidden="true" tabindex="-1"></a>glcoud <span class="sc">--</span>help</span></code></pre></div>
+<p>if the result is something like <code>'gcloud' not found</code> or <code>'gcloud' not recognized as a command</code>, then gcloud is not installed. (If you see something besides the above, then skip the rest of this sub-section)</p>
+<p>Install the <code>gcloud</code> Command Line Interface (CLI) by following the instructions <a href="https://cloud.google.com/sdk/docs/install">here</a></p>
+<p>After the installer finishes, select the option to open the Google Cloud Command Prompt.</p>
+<p>If you closed out of the installer without selecting to open the Google Cloud Command Prompt, it’s ok. Close and re-open the Windows Command Prompt (or enter <code>conda deactivate</code> twice until you are out of the conda environment and no longer see <code>(rgee)</code> or <code>(base)</code>) and enter</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="install-the-earth-engine-api.html#cb9-1" aria-hidden="true" tabindex="-1"></a>cd <span class="st">&quot;AppData\Local\Google\Cloud SDK&quot;</span></span></code></pre></div>
+<p>You are now in this folder directory. Enter</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="install-the-earth-engine-api.html#cb10-1" aria-hidden="true" tabindex="-1"></a>cloud_env.bat</span></code></pre></div>
+<p>and now you are in the Google Cloud CLI</p>
+<p>You will be prompted to log in to your Google account. Type <code>y</code> and a browser window will automatically open. Log in to the Google account that your Earth Engine account is connected to. Return to the command prompt and select the correct cloud project that you are working in.</p>
+<p>Close and re-open the Command Prompt shell, re-activate conda and the conda <code>rgee</code> environment</p>
+<p>(you should see <code>(rgee)</code> in front of your user name)</p>
+</div>
+</div>
+<div id="connect-your-earth-engine-credentials-to-the-api" class="section level3 hasAnchor" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> Connect your Earth Engine credentials to the API<a href="install-the-earth-engine-api.html#connect-your-earth-engine-credentials-to-the-api" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol start="5" style="list-style-type: decimal">
+<li>In the command shell, type</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="install-the-earth-engine-api.html#cb11-1" aria-hidden="true" tabindex="-1"></a>earthengine authenticate</span></code></pre></div>
+<p>A browser will automatically open. Log in to the Google account connected to your Earth Engine account and allow access to the Google Earth Engine Authenticator</p>
+<p><br />
+</p>
+<div id="check-that-the-api-was-connected-correctly" class="section level4 hasAnchor" number="2.1.4.1">
+<h4><span class="header-section-number">2.1.4.1</span> Check that the API was connected correctly<a href="install-the-earth-engine-api.html#check-that-the-api-was-connected-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In the command shell, type</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="install-the-earth-engine-api.html#cb12-1" aria-hidden="true" tabindex="-1"></a>python</span></code></pre></div>
+<p>This will begin a python interpreter in your conda ee environment, allowing you to code in python in the command shell</p>
+<p>Enter</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="install-the-earth-engine-api.html#cb13-1" aria-hidden="true" tabindex="-1"></a>import ee</span>
+<span id="cb13-2"><a href="install-the-earth-engine-api.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ee.Initialize</span>()</span>
+<span id="cb13-3"><a href="install-the-earth-engine-api.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ee.Image</span>(<span class="st">&#39;USGS/SRTMGL1_003&#39;</span>)<span class="fu">.getInfo</span>())</span></code></pre></div>
+<p>If the command line prints out metadata of a DEM data set and looks something like</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="install-the-earth-engine-api.html#cb14-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;Image&#39;</span>, <span class="st">&#39;bands&#39;</span><span class="sc">:</span> [{<span class="st">&#39;id&#39;</span><span class="sc">:</span> <span class="st">&#39;elevation&#39;</span>, <span class="st">&#39;data_type&#39;</span><span class="sc">:</span> {<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;PixelType&#39;</span>, <span class="st">&#39;precision&#39;</span><span class="sc">:</span> <span class="st">&#39;int&#39;</span>, <span class="st">&#39;min&#39;</span><span class="sc">:</span> <span class="sc">-</span><span class="dv">3</span></span></code></pre></div>
+<p>then you have successfully connected the API to your Earth Engine account</p>
+<p>To exit the python interpreter, enter Ctr + Z (It will look like <code>^Z</code>)</p>
+</div>
+</div>
+</div>
+<div id="set-up-using-anaconda-navigator" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Set Up Using Anaconda Navigator<a href="install-the-earth-engine-api.html#set-up-using-anaconda-navigator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-earthengine_api.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

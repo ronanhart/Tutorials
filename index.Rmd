@@ -15,7 +15,7 @@ github-repo: rstudio/bookdown-demo
 knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-# Set Up Pyton and Earth Engine API
+# Installing Python and Anaconda
 
 Before being able to use `rgee`, you need to ensure:
 

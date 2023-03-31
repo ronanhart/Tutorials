@@ -31,7 +31,7 @@
   
   
 
-<link rel="next" href="set-up-on-the-command-prompt-shellterminal.html"/>
+<link rel="next" href="installing-the-earth-engine-api.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -136,16 +136,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Set Up Pyton and Earth Engine API</a></li>
-<li class="chapter" data-level="2" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html"><i class="fa fa-check"></i><b>2</b> Set up on the Command Prompt (shell/terminal)</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Installing Python and Anaconda</a></li>
+<li class="chapter" data-level="2" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html"><i class="fa fa-check"></i><b>2</b> Installing the Earth Engine API</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#activate-the-conda-virtual-environment"><i class="fa fa-check"></i><b>2.1</b> Activate the conda virtual environment</a></li>
-<li class="chapter" data-level="2.2" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#create-a-conda-envrionment-for-earth-engine-api"><i class="fa fa-check"></i><b>2.2</b> Create a conda envrionment for Earth Engine API</a></li>
-<li class="chapter" data-level="2.3" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-the-earth-engine-api"><i class="fa fa-check"></i><b>2.3</b> Install the Earth Engine API</a>
+<li class="chapter" data-level="2.1" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#set-up-using-the-command-prompt-shellterminal"><i class="fa fa-check"></i><b>2.1</b> Set Up Using the Command Prompt (shell/terminal)</a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-gcloud"><i class="fa fa-check"></i><b>2.3.1</b> Install <code>gcloud</code></a></li>
+<li class="chapter" data-level="2.1.1" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#activate-the-conda-virtual-environment"><i class="fa fa-check"></i><b>2.1.1</b> Activate the conda virtual environment</a></li>
+<li class="chapter" data-level="2.1.2" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#create-a-conda-envrionment-for-earth-engine-api"><i class="fa fa-check"></i><b>2.1.2</b> Create a conda envrionment for Earth Engine API</a></li>
+<li class="chapter" data-level="2.1.3" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#install-the-earth-engine-api"><i class="fa fa-check"></i><b>2.1.3</b> Install the Earth Engine API</a></li>
+<li class="chapter" data-level="2.1.4" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#connect-your-earth-engine-credentials-to-the-api"><i class="fa fa-check"></i><b>2.1.4</b> Connect your Earth Engine credentials to the API</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#connect-your-earth-engine-credentials-to-the-api"><i class="fa fa-check"></i><b>2.4</b> Connect your Earth Engine credentials to the API</a></li>
+<li class="chapter" data-level="2.2" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#set-up-using-anaconda-navigator"><i class="fa fa-check"></i><b>2.2</b> Set Up Using Anaconda Navigator</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -173,8 +174,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="author"><em>Ronan Hart</em></p>
 <p class="date"><em>2023-03-31</em></p>
 </div>
-<div id="set-up-pyton-and-earth-engine-api" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number"> 1</span> Set Up Pyton and Earth Engine API<a href="index.html#set-up-pyton-and-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="installing-python-and-anaconda" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number"> 1</span> Installing Python and Anaconda<a href="index.html#installing-python-and-anaconda" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Before being able to use <code>rgee</code>, you need to ensure:</p>
 <ol style="list-style-type: decimal">
 <li>python is installed</li>
@@ -192,7 +193,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 
-<a href="set-up-on-the-command-prompt-shellterminal.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="installing-the-earth-engine-api.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
