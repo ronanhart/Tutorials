@@ -130,7 +130,7 @@ Check that `gcloud` is installed or not by typing in the command shell
 glcoud --help
 ```
 
-if the result is something like `'gcloud' not found` or `'gcloud' not recognized as a command`, then gcloud is not installed. (If you see something besides the above, then skip to [the next section](### Connect your Earth Engine credentials to the API))
+if the result is something like `'gcloud' not found` or `'gcloud' not recognized as a command`, then gcloud is not installed. (If you see something besides the above, then skip to [the next section](#connect-your-earth-engine-credentials-to-the-api))
 
 Install the `gcloud` Command Line Interface (CLI) by following the instructions [here](https://cloud.google.com/sdk/docs/install)
 
