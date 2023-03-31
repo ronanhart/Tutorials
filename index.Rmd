@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "Tutorials"
+author: "Ronan Hart"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
@@ -15,46 +15,154 @@ link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
 
-# About
-
-This is a _sample_ book written in **Markdown**. You can use anything that Pandoc's Markdown supports; for example, a math equation $a^2 + b^2 = c^2$.
-
-## Usage 
-
-Each **bookdown** chapter is an .Rmd file, and each .Rmd file can contain one (and only one) chapter. A chapter *must* start with a first-level heading: `# A good chapter`, and can contain one (and only one) first-level heading.
-
-Use second-level and higher headings within chapters like: `## A short section` or `### An even shorter section`.
-
-The `index.Rmd` file is required, and is also your first book chapter. It will be the homepage when you render the book.
-
-## Render book
-
-You can render the HTML version of this example book without changing anything:
-
-1. Find the **Build** pane in the RStudio IDE, and
-
-1. Click on **Build Book**, then select your output format, or select "All formats" if you'd like to use multiple formats from the same book source files.
-
-Or build the book from the R console:
-
-```{r, eval=FALSE}
-bookdown::render_book()
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 ```
 
-To render this example to PDF as a `bookdown::pdf_book`, you'll need to install XeLaTeX. You are recommended to install TinyTeX (which includes XeLaTeX): <https://yihui.org/tinytex/>.
+# Set Up Pyton and Earth Engine API
 
-## Preview book
+Before being able to use `rgee`, you need to ensure:
 
-As you work, you may start a local server to live preview this HTML book. This preview will update as you edit the book when you save individual .Rmd files. You can start the server in a work session by using the RStudio add-in "Preview book", or from the R console:
+1. python is installed
+2. the python Earth Engine API is installed
+3. your Earth Engine credentials are connected to the API
 
-```{r eval=FALSE}
-bookdown::serve_book()
+*(Note: these instructions are for Windows)*
+
+## Install Anaconda 
+
+Go to <https://www.anaconda.com/> and select "Download". (this automatically installs python)
+
+After Anacoda is successfully downloaded, open the Command Prompt shell 
+    - open the start menu and search for 'Command Prompt' or press the Windows key + R and search 'cmd'
+    - You should see something like `C:\Users\[username]>` and your cursor
+
+In the command prompt, enter
+
+```{r}
+anaconda3\condabin\activate
 ```
 
+You should now see `(base)` in front of your user name
 
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+Test that conda is installed correctly by enterng 
+
+```{r}
+conda --help
 ```
+
+If the result is something like `'conda' not found` or `'conda' not recognized as a command`, then conda did not install correctly. 
+
+## Install the Earth Engine API
+
+If you don't see `(base)` in front of your user name, activate your base conda environment by entering 
+
+```{r}
+anaconda3\condabin\activate
+```
+
+Create a conda virtual environment for the Earth Engine API (It is always recommended to work in different environments and not your base environment). We want to name it `rgee` since we will use this environment to work with the `rgee` package.
+
+In the command prompt, enter 
+
+```{r}
+conda create --name rgee
+```
+
+and enter `y` when prompted. 
+
+Activate your conda `rgee` environment by entering 
+
+```{r}
+conda activate rgee
+```
+
+You should now see `(rgee)` in front of your user name
+
+Note: to exit the `rgee` environment, enter
+
+```{r}
+conda deactivate
+```
+
+and you should see `(base)` in front of your user name again.
+
+Install the Earth Engine API into this conda `rgee` environment by entering 
+
+```{r}
+conda install -c conda-forge earthengine-api==0.1.323
+```
+
+and type `y` when prompted.
+
+`conda install` is the method of installing any packages into the conda environment. `-c conda-forge` is needed because `earthengine-api` is not a built-in package in python (kind of like how you might install a github package using `devtools::`). Note that we are installing version 0.1.323 of `earthengine-api`. This is not the most recent version of `earthengine-api`, but `rgee` was developped and will work best with this version.
+    
+Go ahead and also install the package `pandas` (a python package that handles data management, similar to `dplyr` in R). Enter
+
+```{r}
+conda install pandas
+```
+
+and type `y` when prompted.
+    
+This will automatically install all of `pandas` dependencies, like `numpy` (a package that handles scientific computation)
+
+### Install `gcloud`
+
+We need to ensure that `gcloud` is installed to connect our Google credentials to Earth Engine API
+
+Check that `gcloud` is installed or not by typing in the command shell
+
+```{r}
+glcoud --help
+```
+
+if the result is something like `'gcloud' not found` or `'gcloud' not recognized as a command`, then gcloud is not installed. (If you see something besides the above, then skip to the rest of this section)
+
+Install the `gcloud` Command Line Interface (CLI) by following the instructions [here](https://cloud.google.com/sdk/docs/install)
+
+After the installer finishes, select the option to open the Google Cloud Command Prompt.
+    
+If you closed out of the installer without selecting to open the Google Cloud Command Prompt, it's ok. Close and re-open the Windows Command Prompt and type 
+
+```{r}
+cd "AppData\Local\Google\Cloud SDK"
+```
+
+You are now in this folder directory. Now type
+    `cloud_env.bat`
+    And now you are in the Google Cloud CLI
+
+3. You will be prompted to log in. Type `y` and a browser window will automatically open. Log in to the Google account that your Earth Engine account is connected to. Return to the command prompt and select the correct cloud project that you are working in.
+
+4. Close and re-open the Command Prompt shell, re-activate conda and the conda `rgee` environment 
+
+    (you should see `(rgee)` in front of your user name)
+
+## Connect your Earth Engine credentials to the API
+
+5. In the command shell, type
+
+    `earthengine authenticate`
+    
+    A browser will automatically open. Log in to the Google account connected to your Earth Engine account and allow access to the API
+
+\
+
+#### Check that the API was connected correctly
+
+In the command shell, type 
+    
+    python
+    
+This will begin a python interpreter in your conda ee environment, allowing you to code in python in the command shell
+
+Type
+    
+    import ee
+    ee.Initialize()
+    print(ee.Image('USGS/SRTMGL1_003').getInfo())
+    
+If the command line prints out metadata of a DEM dataset (looking something like `{'type': 'Image', 'bands':` ...), then you have successfully conencted the API to your Earth Engine account
+
+To exit the python interpreter, type `ctr` + `Z` (It will look like `^Z`)
