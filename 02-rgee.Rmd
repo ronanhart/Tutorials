@@ -1,0 +1,3 @@
+# Connecting R to Earth Engine
+
+Now that we have Python and the Earth Engine API installed and connected to our Google credentials, we now have to connect R to Python and the API

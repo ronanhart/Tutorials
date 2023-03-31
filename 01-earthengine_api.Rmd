@@ -74,9 +74,9 @@ conda install -c conda-forge earthengine-api==0.1.323
 
 and type `y` when prompted.
 
-`conda install` is the method of installing any packages into the conda environment. `-c conda-forge` is needed because `earthengine-api` is not a built-in package in python (kind of like how you might install a github package using `devtools::`). Note that we are installing version 0.1.323 of `earthengine-api`. This is not the most recent version of `earthengine-api`, but `rgee` was developped and will work best with this version.
+`conda install` is the method of installing any packages into the conda environment. `-c conda-forge` is needed because `earthengine-api` is not a built-in package in Python (kind of like how you might install a github package using `devtools::`). Note that we are installing version 0.1.323 of `earthengine-api`. This is not the most recent version of `earthengine-api`, but `rgee` was developped and will work best with this version.
     
-Go ahead and also install the package `pandas` (a python package that handles data management, similar to `dplyr` in R). Enter
+Go ahead and also install the package `pandas` (a Python package that handles data management, similar to `dplyr` in R). Enter
 
 ```{r}
 conda install pandas
@@ -142,7 +142,7 @@ In the command shell, type
 python
 ```
 
-This will begin a python interpreter in your conda ee environment, allowing you to code in python in the command shell
+This will begin a Python interpreter in your conda ee environment, allowing you to code in Python in the command shell
 
 Enter
 
@@ -160,7 +160,7 @@ If the command line prints out metadata of a DEM data set and looks something li
 
 then you have successfully connected the API to your Earth Engine account
 
-To exit the python interpreter, enter Ctr + Z (It will look like `^Z`)
+To exit the Python interpreter, enter Ctr + Z (It will look like `^Z`)
 
 
 

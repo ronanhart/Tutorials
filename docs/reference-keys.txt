@@ -8,3 +8,4 @@ install-gcloud
 connect-your-earth-engine-credentials-to-the-api
 check-that-the-api-was-connected-correctly
 set-up-using-anaconda-navigator
+connecting-r-to-earth-engine

@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="references.html"/>
+<link rel="next" href="connecting-r-to-earth-engine.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -148,6 +148,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="installing-the-earth-engine-api.html"><a href="installing-the-earth-engine-api.html#set-up-using-anaconda-navigator"><i class="fa fa-check"></i><b>2.2</b> Set Up Using Anaconda Navigator</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="connecting-r-to-earth-engine.html"><a href="connecting-r-to-earth-engine.html"><i class="fa fa-check"></i><b>3</b> Connecting R to Earth Engine</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -211,8 +212,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Install the Earth Engine API into this conda <code>rgee</code> environment by entering</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="installing-the-earth-engine-api.html#cb6-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c conda<span class="sc">-</span>forge earthengine<span class="sc">-</span>api<span class="sc">==</span><span class="dv">0</span>.<span class="fl">1.323</span></span></code></pre></div>
 <p>and type <code>y</code> when prompted.</p>
-<p><code>conda install</code> is the method of installing any packages into the conda environment. <code>-c conda-forge</code> is needed because <code>earthengine-api</code> is not a built-in package in python (kind of like how you might install a github package using <code>devtools::</code>). Note that we are installing version 0.1.323 of <code>earthengine-api</code>. This is not the most recent version of <code>earthengine-api</code>, but <code>rgee</code> was developped and will work best with this version.</p>
-<p>Go ahead and also install the package <code>pandas</code> (a python package that handles data management, similar to <code>dplyr</code> in R). Enter</p>
+<p><code>conda install</code> is the method of installing any packages into the conda environment. <code>-c conda-forge</code> is needed because <code>earthengine-api</code> is not a built-in package in Python (kind of like how you might install a github package using <code>devtools::</code>). Note that we are installing version 0.1.323 of <code>earthengine-api</code>. This is not the most recent version of <code>earthengine-api</code>, but <code>rgee</code> was developped and will work best with this version.</p>
+<p>Go ahead and also install the package <code>pandas</code> (a Python package that handles data management, similar to <code>dplyr</code> in R). Enter</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="installing-the-earth-engine-api.html#cb7-1" aria-hidden="true" tabindex="-1"></a>conda install pandas</span></code></pre></div>
 <p>and type <code>y</code> when prompted.</p>
 <p>This will automatically install all of <code>pandas</code> dependencies, like <code>numpy</code> (a package that handles scientific computation)</p>
@@ -247,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">2.1.4.1</span> Check that the API was connected correctly<a href="installing-the-earth-engine-api.html#check-that-the-api-was-connected-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the command shell, type</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="installing-the-earth-engine-api.html#cb12-1" aria-hidden="true" tabindex="-1"></a>python</span></code></pre></div>
-<p>This will begin a python interpreter in your conda ee environment, allowing you to code in python in the command shell</p>
+<p>This will begin a Python interpreter in your conda ee environment, allowing you to code in Python in the command shell</p>
 <p>Enter</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="installing-the-earth-engine-api.html#cb13-1" aria-hidden="true" tabindex="-1"></a>import ee</span>
 <span id="cb13-2"><a href="installing-the-earth-engine-api.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ee.Initialize</span>()</span>
@@ -255,13 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If the command line prints out metadata of a DEM data set and looks something like</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="installing-the-earth-engine-api.html#cb14-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;Image&#39;</span>, <span class="st">&#39;bands&#39;</span><span class="sc">:</span> [{<span class="st">&#39;id&#39;</span><span class="sc">:</span> <span class="st">&#39;elevation&#39;</span>, <span class="st">&#39;data_type&#39;</span><span class="sc">:</span> {<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;PixelType&#39;</span>, <span class="st">&#39;precision&#39;</span><span class="sc">:</span> <span class="st">&#39;int&#39;</span>, <span class="st">&#39;min&#39;</span><span class="sc">:</span> <span class="sc">-</span><span class="dv">3</span></span></code></pre></div>
 <p>then you have successfully connected the API to your Earth Engine account</p>
-<p>To exit the python interpreter, enter Ctr + Z (It will look like <code>^Z</code>)</p>
+<p>To exit the Python interpreter, enter Ctr + Z (It will look like <code>^Z</code>)</p>
 </div>
 </div>
 </div>
 <div id="set-up-using-anaconda-navigator" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Set Up Using Anaconda Navigator<a href="installing-the-earth-engine-api.html#set-up-using-anaconda-navigator" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-
 
 </div>
 </div>
@@ -271,7 +271,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="connecting-r-to-earth-engine.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

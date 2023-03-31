@@ -19,8 +19,8 @@ knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
 
 Before being able to use `rgee`, you need to ensure:
 
-1. python is installed
-2. the python Earth Engine API is installed
+1. Python is installed
+2. the Python Earth Engine API is installed
 3. your Earth Engine credentials are connected to the API
 
 First things first, let's install Anaconda
