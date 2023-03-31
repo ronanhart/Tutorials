@@ -211,6 +211,13 @@ Now that we have Python and the Earth Engine API installed and connected to our 
 `r if (knitr::is_html_output()) '
 # References {-}
 '`
+https://developers.google.com/earth-engine/guides/python_install
+
+https://developers.google.com/earth-engine/guides/python_install-conda
+
+https://developers.google.com/earth-engine/tutorials/community/intro-to-python-api
+
+https://www.css.cornell.edu/faculty/dgr2/_static/files/R_html/ex_rgee.html
 
 <!--chapter:end:07-references.Rmd-->
 
