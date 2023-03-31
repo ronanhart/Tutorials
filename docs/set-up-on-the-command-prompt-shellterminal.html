@@ -139,13 +139,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Set Up Pyton and Earth Engine API</a></li>
 <li class="chapter" data-level="2" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html"><i class="fa fa-check"></i><b>2</b> Set up on the Command Prompt (shell/terminal)</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-the-earth-engine-api"><i class="fa fa-check"></i><b>2.1</b> Install the Earth Engine API</a>
+<li class="chapter" data-level="2.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#activate-the-conda-virtual-environment"><i class="fa fa-check"></i><b>2.1</b> Activate the conda virtual environment</a></li>
+<li class="chapter" data-level="2.2" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#create-a-conda-envrionment-for-earth-engine-api"><i class="fa fa-check"></i><b>2.2</b> Create a conda envrionment for Earth Engine API</a></li>
+<li class="chapter" data-level="2.3" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-the-earth-engine-api"><i class="fa fa-check"></i><b>2.3</b> Install the Earth Engine API</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-gcloud"><i class="fa fa-check"></i><b>2.1.1</b> Install <code>gcloud</code></a></li>
+<li class="chapter" data-level="2.3.1" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#install-gcloud"><i class="fa fa-check"></i><b>2.3.1</b> Install <code>gcloud</code></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#connect-your-earth-engine-credentials-to-the-api"><i class="fa fa-check"></i><b>2.2</b> Connect your Earth Engine credentials to the API</a></li>
-<li class="chapter" data-level="2.3" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#r-markdown"><i class="fa fa-check"></i><b>2.3</b> R Markdown</a></li>
-<li class="chapter" data-level="2.4" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#including-plots"><i class="fa fa-check"></i><b>2.4</b> Including Plots</a></li>
+<li class="chapter" data-level="2.4" data-path="set-up-on-the-command-prompt-shellterminal.html"><a href="set-up-on-the-command-prompt-shellterminal.html#connect-your-earth-engine-credentials-to-the-api"><i class="fa fa-check"></i><b>2.4</b> Connect your Earth Engine credentials to the API</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -171,31 +171,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="set-up-on-the-command-prompt-shellterminal" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number"> 2</span> Set up on the Command Prompt (shell/terminal)<a href="set-up-on-the-command-prompt-shellterminal.html#set-up-on-the-command-prompt-shellterminal" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><em>(Note: these instructions are for Windows)</em></p>
-<p>After Anacoda is successfully downloaded, open the Command Prompt shell</p>
+<div id="activate-the-conda-virtual-environment" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Activate the conda virtual environment<a href="set-up-on-the-command-prompt-shellterminal.html#activate-the-conda-virtual-environment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>After Anacoda is successfully downloaded, open the Command Prompt shell by:</p>
 <ul>
-<li>open the start menu and search for ‘Command Prompt’ or press the Windows key + R and search ‘cmd’</li>
-<li>You should see something like <code>C:\Users\[username]&gt;</code> and your cursor</li>
+<li>opening the start menu and search for ‘Command Prompt’</li>
+<li>pressing the Windows key + R and search ‘cmd’</li>
+<li>clicking the terminal tab in Rstudio</li>
+<li>launcing “CMD.exe Prompt” within Anaconda Navigator</li>
 </ul>
+<p>You should be in your root or home directory and see something like <code>C:\Users\[username]&gt;</code> and your cursor</p>
+<p>If you are in a different directory, enter <code>cd</code> and your root directory (<code>cd</code> means “change directory”)</p>
 <p>In the command prompt, enter</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb1-1" aria-hidden="true" tabindex="-1"></a>anaconda3\condabin\activate</span></code></pre></div>
-<p>You should now see <code>(base)</code> in front of your user name</p>
-<p>Test that conda is installed correctly by enterng</p>
+<p>You should now see <code>(base)</code> in front of your user name.</p>
+<p><strong>Whenever you need to be in a conda environment (such as for the rest of this tutorial), be sure to check if you have</strong> <code>(base)</code> <strong>in front of your user name. If you don’t, always enter the above command to enter the conda environment</strong></p>
+<p>Test that conda is installed correctly by entering</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb2-1" aria-hidden="true" tabindex="-1"></a>conda <span class="sc">--</span>help</span></code></pre></div>
 <p>If the result is something like <code>'conda' not found</code> or <code>'conda' not recognized as a command</code>, then conda did not install correctly.</p>
-<div id="install-the-earth-engine-api" class="section level2 hasAnchor" number="2.1">
-<h2><span class="header-section-number">2.1</span> Install the Earth Engine API<a href="set-up-on-the-command-prompt-shellterminal.html#install-the-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="create-a-conda-envrionment-for-earth-engine-api" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Create a conda envrionment for Earth Engine API<a href="set-up-on-the-command-prompt-shellterminal.html#create-a-conda-envrionment-for-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If you don’t see <code>(base)</code> in front of your user name, activate your base conda environment by entering</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb3-1" aria-hidden="true" tabindex="-1"></a>anaconda3\condabin\activate</span></code></pre></div>
-<p>Create a conda virtual environment for the Earth Engine API (It is always recommended to work in different environments and not your base environment). We want to name it <code>rgee</code> since we will use this environment to work with the <code>rgee</code> package.</p>
+<p>Create a conda virtual environment for the Earth Engine API. It is always recommended to work in different environments and not your base environment. This is so you can work with different packages and dependences depending on your project. We want to name this environment <code>rgee</code> since we will use this environment to work with the <code>rgee</code> package. This environment can be named anything you want, as long as you know what environment the Earth Engine API is installed in, so it makes the most sense (and is standard) to name the environment after the main package you are working with.</p>
 <p>In the command prompt, enter</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb4-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">--</span>name rgee</span></code></pre></div>
 <p>and enter <code>y</code> when prompted.</p>
 <p>Activate your conda <code>rgee</code> environment by entering</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb5-1" aria-hidden="true" tabindex="-1"></a>conda activate rgee</span></code></pre></div>
 <p>You should now see <code>(rgee)</code> in front of your user name</p>
-<p>Note: to exit the <code>rgee</code> environment, enter</p>
+<p><em>Note: to exit the <code>rgee</code> environment, enter</em></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb6-1" aria-hidden="true" tabindex="-1"></a>conda deactivate</span></code></pre></div>
-<p>and you should see <code>(base)</code> in front of your user name again.</p>
+<p><em>and you should see <code>(base)</code> in front of your user name again.</em></p>
+</div>
+<div id="install-the-earth-engine-api" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Install the Earth Engine API<a href="set-up-on-the-command-prompt-shellterminal.html#install-the-earth-engine-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Install the Earth Engine API into this conda <code>rgee</code> environment by entering</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb7-1" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c conda<span class="sc">-</span>forge earthengine<span class="sc">-</span>api<span class="sc">==</span><span class="dv">0</span>.<span class="fl">1.323</span></span></code></pre></div>
 <p>and type <code>y</code> when prompted.</p>
@@ -204,60 +215,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb8-1" aria-hidden="true" tabindex="-1"></a>conda install pandas</span></code></pre></div>
 <p>and type <code>y</code> when prompted.</p>
 <p>This will automatically install all of <code>pandas</code> dependencies, like <code>numpy</code> (a package that handles scientific computation)</p>
-<div id="install-gcloud" class="section level3 hasAnchor" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Install <code>gcloud</code><a href="set-up-on-the-command-prompt-shellterminal.html#install-gcloud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="install-gcloud" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Install <code>gcloud</code><a href="set-up-on-the-command-prompt-shellterminal.html#install-gcloud" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We need to ensure that <code>gcloud</code> is installed to connect our Google credentials to Earth Engine API</p>
 <p>Check that <code>gcloud</code> is installed or not by typing in the command shell</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb9-1" aria-hidden="true" tabindex="-1"></a>glcoud <span class="sc">--</span>help</span></code></pre></div>
-<p>if the result is something like <code>'gcloud' not found</code> or <code>'gcloud' not recognized as a command</code>, then gcloud is not installed. (If you see something besides the above, then skip to the rest of this section)</p>
+<p>if the result is something like <code>'gcloud' not found</code> or <code>'gcloud' not recognized as a command</code>, then gcloud is not installed. (If you see something besides the above, then skip the rest of this sub-section)</p>
 <p>Install the <code>gcloud</code> Command Line Interface (CLI) by following the instructions <a href="https://cloud.google.com/sdk/docs/install">here</a></p>
 <p>After the installer finishes, select the option to open the Google Cloud Command Prompt.</p>
-<p>If you closed out of the installer without selecting to open the Google Cloud Command Prompt, it’s ok. Close and re-open the Windows Command Prompt and type</p>
+<p>If you closed out of the installer without selecting to open the Google Cloud Command Prompt, it’s ok. Close and re-open the Windows Command Prompt (or enter <code>conda deactivate</code> twice until you are out of the conda environment and no longer see <code>(rgee)</code> or <code>(base)</code>) and enter</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb10-1" aria-hidden="true" tabindex="-1"></a>cd <span class="st">&quot;AppData\Local\Google\Cloud SDK&quot;</span></span></code></pre></div>
-<p>You are now in this folder directory. Now type
-<code>cloud_env.bat</code>
-And now you are in the Google Cloud CLI</p>
-<ol start="3" style="list-style-type: decimal">
-<li><p>You will be prompted to log in. Type <code>y</code> and a browser window will automatically open. Log in to the Google account that your Earth Engine account is connected to. Return to the command prompt and select the correct cloud project that you are working in.</p></li>
-<li><p>Close and re-open the Command Prompt shell, re-activate conda and the conda <code>rgee</code> environment</p>
-<p>(you should see <code>(rgee)</code> in front of your user name)</p></li>
-</ol>
+<p>You are now in this folder directory. Enter</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb11-1" aria-hidden="true" tabindex="-1"></a>cloud_env.bat</span></code></pre></div>
+<p>and now you are in the Google Cloud CLI</p>
+<p>You will be prompted to log in to your Google account. Type <code>y</code> and a browser window will automatically open. Log in to the Google account that your Earth Engine account is connected to. Return to the command prompt and select the correct cloud project that you are working in.</p>
+<p>Close and re-open the Command Prompt shell, re-activate conda and the conda <code>rgee</code> environment</p>
+<p>(you should see <code>(rgee)</code> in front of your user name)</p>
 </div>
 </div>
-<div id="connect-your-earth-engine-credentials-to-the-api" class="section level2 hasAnchor" number="2.2">
-<h2><span class="header-section-number">2.2</span> Connect your Earth Engine credentials to the API<a href="set-up-on-the-command-prompt-shellterminal.html#connect-your-earth-engine-credentials-to-the-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="connect-your-earth-engine-credentials-to-the-api" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Connect your Earth Engine credentials to the API<a href="set-up-on-the-command-prompt-shellterminal.html#connect-your-earth-engine-credentials-to-the-api" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol start="5" style="list-style-type: decimal">
-<li><p>In the command shell, type</p>
-<p><code>earthengine authenticate</code></p>
-<p>A browser will automatically open. Log in to the Google account connected to your Earth Engine account and allow access to the API</p></li>
+<li>In the command shell, type</li>
 </ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb12-1" aria-hidden="true" tabindex="-1"></a>earthengine authenticate</span></code></pre></div>
+<p>A browser will automatically open. Log in to the Google account connected to your Earth Engine account and allow access to the Google Earth Engine Authenticator</p>
 <p><br />
 </p>
-<div id="check-that-the-api-was-connected-correctly" class="section level4 hasAnchor" number="2.2.0.1">
-<h4><span class="header-section-number">2.2.0.1</span> Check that the API was connected correctly<a href="set-up-on-the-command-prompt-shellterminal.html#check-that-the-api-was-connected-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="check-that-the-api-was-connected-correctly" class="section level4 hasAnchor" number="2.4.0.1">
+<h4><span class="header-section-number">2.4.0.1</span> Check that the API was connected correctly<a href="set-up-on-the-command-prompt-shellterminal.html#check-that-the-api-was-connected-correctly" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the command shell, type</p>
-<pre><code>python</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb13-1" aria-hidden="true" tabindex="-1"></a>python</span></code></pre></div>
 <p>This will begin a python interpreter in your conda ee environment, allowing you to code in python in the command shell</p>
-<p>Type</p>
-<pre><code>import ee
-ee.Initialize()
-print(ee.Image(&#39;USGS/SRTMGL1_003&#39;).getInfo())</code></pre>
-<p>If the command line prints out metadata of a DEM dataset (looking something like <code>{'type': 'Image', 'bands':</code> …), then you have successfully conencted the API to your Earth Engine account</p>
-<p>To exit the python interpreter, type <code>ctr</code> + <code>Z</code> (It will look like <code>^Z</code>)</p>
+<p>Enter</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb14-1" aria-hidden="true" tabindex="-1"></a>import ee</span>
+<span id="cb14-2"><a href="set-up-on-the-command-prompt-shellterminal.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ee.Initialize</span>()</span>
+<span id="cb14-3"><a href="set-up-on-the-command-prompt-shellterminal.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ee.Image</span>(<span class="st">&#39;USGS/SRTMGL1_003&#39;</span>)<span class="fu">.getInfo</span>())</span></code></pre></div>
+<p>If the command line prints out metadata of a DEM data set and looks something like</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb15-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;Image&#39;</span>, <span class="st">&#39;bands&#39;</span><span class="sc">:</span> [{<span class="st">&#39;id&#39;</span><span class="sc">:</span> <span class="st">&#39;elevation&#39;</span>, <span class="st">&#39;data_type&#39;</span><span class="sc">:</span> {<span class="st">&#39;type&#39;</span><span class="sc">:</span> <span class="st">&#39;PixelType&#39;</span>, <span class="st">&#39;precision&#39;</span><span class="sc">:</span> <span class="st">&#39;int&#39;</span>, <span class="st">&#39;min&#39;</span><span class="sc">:</span> <span class="sc">-</span><span class="dv">3</span></span></code></pre></div>
+<p>then you have successfully connected the API to your Earth Engine account</p>
+<p>To exit the python interpreter, enter Ctr + Z (It will look like <code>^Z</code>)</p>
+
 
 </div>
-</div>
-<div id="r-markdown" class="section level2 hasAnchor" number="2.3">
-<h2><span class="header-section-number">2.3</span> R Markdown<a href="set-up-on-the-command-prompt-shellterminal.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="set-up-on-the-command-prompt-shellterminal.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cars)</span></code></pre></div>
-</div>
-<div id="including-plots" class="section level2 hasAnchor" number="2.4">
-<h2><span class="header-section-number">2.4</span> Including Plots<a href="set-up-on-the-command-prompt-shellterminal.html#including-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can also embed plots, for example:</p>
-<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
-
 </div>
 </div>
             </section>

@@ -1,8 +1,8 @@
 set-up-pyton-and-earth-engine-api
 set-up-on-the-command-prompt-shellterminal
+activate-the-conda-virtual-environment
+create-a-conda-envrionment-for-earth-engine-api
 install-the-earth-engine-api
 install-gcloud
 connect-your-earth-engine-credentials-to-the-api
 check-that-the-api-was-connected-correctly
-r-markdown
-including-plots
